@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SearchForm from "@/app/components/SearchForm";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
         <h1 className="heading">Главная страница</h1>
 
         <p className="sub-heading">Добавляйте новую информацию легко</p>
+
+        <SearchForm />
       </section>
     </>
   );
