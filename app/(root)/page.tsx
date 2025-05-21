@@ -3,7 +3,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <h1 className="heading">Home</h1>
+      <section className="dark-container">
+        <h1 className="heading">Главная страница</h1>
+
+        <p className="sub-heading">Добавляйте новую информацию легко</p>
+      </section>
     </>
   );
 }
