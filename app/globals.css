@@ -48,7 +48,7 @@
   }
 
   .sub-heading {
-    @apply text-white pb-6 px-6 font-bold text-center;
+    @apply text-white pb-8 px-6 font-bold text-center;
   }
 
   .dark-container {
@@ -56,7 +56,15 @@
   }
 
   .search-form {
-    @apply py-3 px-6 bg-white rounded-md;
+    @apply max-w-3xl w-full min-h-[60px] bg-white border-[5px] border-black rounded-[80px] text-[24px] px-5 flex flex-row items-center gap-5;
+  }
+
+  .search-input {
+    @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black w-full h-auto outline-none;
+  }
+
+  .search-btn {
+    @apply size-[40px] rounded-full bg-black flex justify-center items-center;
   }
 }
 
