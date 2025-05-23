@@ -7,11 +7,11 @@ export default async function Home({ searchParams }: {
   const query = (await searchParams).query;
 
   const posts = [{
-    id: 1,
+    _id: 1,
     _createdAt: new Date(),
     views: 35,
-    author: { _id: 1, name: "Shirokov Gleb" },
-    description: "description",
+    author: { id: 1, name: "Shirokov Gleb" },
+    description: "This is a description of the article.",
     image: "https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A=w240-h480-rw",
     category: "ai",
     title: "New ChatGPT device"
@@ -34,7 +34,7 @@ export default async function Home({ searchParams }: {
 
         <ul className="mt-7 card_grid">
           { posts.length > 0 ? posts.map((post: ArticleTypeCard) => (
-            <ArticleCard key={post?.id} post={post} />
+            <ArticleCard key={post?._id} post={post} />
           )) : (
             <p className="no-results">Статей не найдено</p>
           )}
