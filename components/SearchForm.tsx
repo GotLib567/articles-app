@@ -10,7 +10,7 @@ function SearchForm({ query }: { query?: string }) {
         name="query"
         defaultValue={query}
         className="search-input"
-        placeholder="Искать стартапы"
+        placeholder="Искать статьи"
       />
 
       <div className="flex gap-2">
