@@ -1,14 +1,15 @@
 import SearchForm from "@/components/SearchForm";
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard, { ArticleTypeCard } from "@/components/ArticleCard";
 import {client} from "@/sanity/lib/client";
 import {ARTICLES_QUERY} from "@/sanity/lib/queries";
+import {sanityFetch, SanityLive} from "@/sanity/lib/live";
 
 export default async function Home({ searchParams }: {
   searchParams: Promise<{ query?:string }>
 }) {
   const query = (await searchParams).query;
 
-  const posts = await client.fetch(ARTICLES_QUERY);
+  const { data: posts } = await sanityFetch({ query: ARTICLES_QUERY });
 
   console.log(JSON.stringify(posts, null, 2))
   // const posts = [{
@@ -45,6 +46,8 @@ export default async function Home({ searchParams }: {
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }
