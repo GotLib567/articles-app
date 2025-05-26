@@ -1,21 +1,26 @@
 import SearchForm from "@/components/SearchForm";
 import ArticleCard from "@/components/ArticleCard";
+import {client} from "@/sanity/lib/client";
+import {ARTICLES_QUERY} from "@/sanity/lib/queries";
 
 export default async function Home({ searchParams }: {
   searchParams: Promise<{ query?:string }>
 }) {
   const query = (await searchParams).query;
 
-  const posts = [{
-    _id: 1,
-    _createdAt: new Date(),
-    views: 35,
-    author: { id: 1, name: "Shirokov Gleb" },
-    description: "This is a description of the article.",
-    image: "https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A=w240-h480-rw",
-    category: "ai",
-    title: "New ChatGPT device"
-  }]
+  const posts = await client.fetch(ARTICLES_QUERY);
+
+  console.log(JSON.stringify(posts, null, 2))
+  // const posts = [{
+  //   _id: 1,
+  //   _createdAt: new Date(),
+  //   views: 35,
+  //   author: { id: 1, name: "Shirokov Gleb" },
+  //   description: "This is a description of the article.",
+  //   image: "https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A=w240-h480-rw",
+  //   category: "ai",
+  //   title: "New ChatGPT device"
+  // }]
 
   return (
     <>
